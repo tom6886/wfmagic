@@ -1,0 +1,14 @@
+{
+  "province": {
+    "defaultSwitchPeriod": 60000,
+    "childSwitchPeriod": 30000
+  },
+  "city": {
+    "defaultSwitchPeriod": 60000,
+    "childSwitchPeriod": 30000
+  },
+  "county": {
+    "defaultSwitchPeriod": 60000,
+    "childSwitchPeriod": 30000
+  }
+}
