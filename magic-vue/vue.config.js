@@ -8,7 +8,7 @@
  */
 module.exports = {
   // 基本路径
-  publicPath: "/cloth/",
+  publicPath: "/",
   // 输出文件目录
   outputDir: "dist",
   // eslint-loader 是否在保存的时候检查
@@ -50,18 +50,18 @@ module.exports = {
   devServer: {
     open: process.platform === "darwin",
     host: "0.0.0.0",
-    port: 10400,
+    port: 10900,
     https: false,
     hotOnly: false,
     disableHostCheck: true,
-    proxy: {
-      "/": {
-        target: "http://139.224.165.146:7082", // target表示代理的服务器url
-        pathRewrite: {
-          // pathRewrite表示路径重写，key表示一个正则，value表示别名
-          "^/": "/", // 即用 '/api'表示'http://localhost:3000/api'
-        },
-      },
-    },
+    // proxy: {
+    //   "/": {
+    //     target: "http://139.224.165.146:7082", // target表示代理的服务器url
+    //     pathRewrite: {
+    //       // pathRewrite表示路径重写，key表示一个正则，value表示别名
+    //       "^/": "/", // 即用 '/api'表示'http://localhost:3000/api'
+    //     },
+    //   },
+    // },
   },
 };

@@ -36,7 +36,6 @@
 </template>
 
 <script lang="ts">
-import dayjs from "dayjs";
 import { Component, Vue } from "vue-property-decorator";
 
 @Component({
@@ -49,6 +48,8 @@ export default class Home extends Vue {
   private content: string = "";
 
   private nowIndex = 0;
+
+  private type = "1";
 
   get width() {
     let domWidth =
@@ -78,13 +79,14 @@ export default class Home extends Vue {
   /** 组件已挂载 */
   private async mounted() {
     let _this = this;
+    this.type = this.$route.params.type;
     _this.getData();
   }
 
   /** 获取数据 */
   private getData() {
     this.$get(
-      `/wfmagic/content/sysContent/list?column=createTime&order=desc&pageNo=1&pageSize=10`
+      `/wfmagic/content/sysContent/list?column=createTime&order=desc&pageNo=1&pageSize=10&type=${this.type}`
     ).then((res: any) => {
       if (res.code == 200) {
         if (res.result.records.length > 0) {
